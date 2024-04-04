@@ -21,4 +21,8 @@
     <ProjectReference Include="..\LMS-Library.Service\LMS-Library.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>

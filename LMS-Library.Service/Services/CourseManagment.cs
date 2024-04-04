@@ -143,7 +143,6 @@ namespace LMS_Library.Service.Services
                 Response = null,
                 IsSuccess = true,
                 StatusCode = (int)HttpStatusCode.OK,
-
                 Message = "Course delete ok"
             };
         }

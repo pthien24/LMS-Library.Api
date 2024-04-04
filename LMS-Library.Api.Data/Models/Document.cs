@@ -8,9 +8,10 @@ namespace LMS_Library.Api.Data.Models
 {
     public class Document
     {
-        public int? DocumentID { get; set; }
+        public int? Id { get; set; }
         public string? FilePath { get; set; }
-        public DateTime UploadDate { get; set; }
+        public DateTime CreatedDate { get; set; } 
+        public DateTime UploadedDate { get; set; } 
         public int? CourseID { get; set; }
         public Course? Course { get; set; }
     }

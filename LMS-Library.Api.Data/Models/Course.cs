@@ -14,6 +14,7 @@ namespace LMS_Library.Api.Data.Models
         public string? Description { get; set; }
         public string? Author { get; set; }
         public ICollection<Document>? Documents { get; set; }
+        public ICollection<Enrollment>? Enrollments{ get; set; }
     }
 
 }

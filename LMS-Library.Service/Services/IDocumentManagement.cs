@@ -11,6 +11,10 @@ namespace LMS_Library.Service.Services
 {
     public interface IDocumentManagement
     {
-        Task<ApiResponse<Document>> CreateDocumentAsync(IFormFile file, int Courseid);
+        Task<ApiResponse<Document>> CreateDocumentAsync(IFormFile file, int Documentid);
+        Task<ApiResponse<List<Document>>> GetAllDocumentAsync();
+        Task<ApiResponse<Document>> GetDocumentByIdAsync(int id);
+        Task<ApiResponse<string>> DeleteDocumentAsync(int id);
+        Task<ApiResponse<Document>> UpdateDocumentAsync(int id, IFormFile file);
     }
 }

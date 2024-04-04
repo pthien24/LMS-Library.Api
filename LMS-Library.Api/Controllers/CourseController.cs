@@ -1,5 +1,6 @@
 ﻿using LMS_Library.Api.Data.Models;
 using LMS_Library.Service.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

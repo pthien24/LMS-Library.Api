@@ -4,6 +4,7 @@ using LMS_Library.Api.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LMS_Library.Api.Data.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240403075644_Inittial")]
+    partial class Inittial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -158,32 +160,6 @@ namespace LMS_Library.Api.Data.Migrations
                     b.ToTable("Documents");
                 });
 
-            modelBuilder.Entity("LMS_Library.Api.Data.Models.Enrollment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EnrollmentDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Enrollments");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -213,7 +189,7 @@ namespace LMS_Library.Api.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3c51691e-6081-4521-925f-038e588d6537",
+                            Id = "139561da-1c4d-4464-b8a5-4ee20e7b3c88",
                             ConcurrencyStamp = "1",
                             Name = "Admin",
                             NormalizedName = "Admin"
@@ -335,21 +311,6 @@ namespace LMS_Library.Api.Data.Migrations
                     b.Navigation("Course");
                 });
 
-            modelBuilder.Entity("LMS_Library.Api.Data.Models.Enrollment", b =>
-                {
-                    b.HasOne("LMS_Library.Api.Data.Models.Course", "Course")
-                        .WithMany("Enrollments")
-                        .HasForeignKey("CourseId");
-
-                    b.HasOne("FLMS_Library.Api.Data.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Course");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -404,8 +365,6 @@ namespace LMS_Library.Api.Data.Migrations
             modelBuilder.Entity("LMS_Library.Api.Data.Models.Course", b =>
                 {
                     b.Navigation("Documents");
-
-                    b.Navigation("Enrollments");
                 });
 #pragma warning restore 612, 618
         }
